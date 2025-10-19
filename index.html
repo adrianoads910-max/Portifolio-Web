@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio - Adriano Souza Fonseca</title>
+
   <!-- TailwindCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <!-- Devicon Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+  <!-- FontAwesome (para ícones de redes sociais e email) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="bg-gray-100 text-gray-900">
 
@@ -15,22 +20,35 @@
   <header class="bg-white shadow-md">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
       <h1 class="text-2xl font-bold">Adriano Souza Fonseca</h1>
-      <nav class="space-x-4">
-        <a href="mailto:adrianoads910@gmail.com" class="text-blue-600 hover:underline">E-mail</a>
-        <a href="https://www.linkedin.com/in/adriano-souza-fonseca-868976300" class="text-blue-600 hover:underline" target="_blank">LinkedIn</a>
-        <a href="https://github.com/adrianoads910-max" class="text-blue-600 hover:underline" target="_blank">GitHub</a>
+      <nav class="flex space-x-6 text-lg">
+        <a href="mailto:adrianoads910@gmail.com" class="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition">
+          <i class="fa-solid fa-envelope"></i> E-mail
+        </a>
+        <a href="https://www.linkedin.com/in/adriano-souza-fonseca-868976300" target="_blank" class="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/adrianoads910-max" target="_blank" class="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
       </nav>
     </div>
   </header>
 
   <!-- Sobre Mim -->
   <section class="max-w-6xl mx-auto px-6 py-12">
-    <h2 class="text-3xl font-semibold mb-4">Sobre Mim</h2>
-    <p class="text-lg leading-relaxed text-gray-700">
-      Profissional com experiência em pesquisa e análise de grandes volumes de dados, em transição para a área de tecnologia.
-      Cursando Análise e Desenvolvimento de Sistemas e atuando como Dev Full-Stack Jr, com habilidades em desenvolvimento de
-      interfaces responsivas, bancos de dados e automação com Python e SQL.
-    </p>
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+      <img src="public/profile.jpeg" alt="foto pessoal"
+        class="w-40 h-40 object-cover rounded-full shadow-lg border-4 border-white">
+      <div>
+        <h2 class="text-3xl font-semibold mb-4">Sobre Mim</h2>
+        <p class="text-lg leading-relaxed text-gray-700">
+          Profissional com experiência em pesquisa e análise de grandes volumes de dados,
+          em transição para a área de tecnologia. Cursando Análise e Desenvolvimento de Sistemas e atuando 
+          como Dev Full-Stack Jr, com habilidades em desenvolvimento de interfaces responsivas, banco de dados 
+          e automação com Python e SQL.
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- Habilidades -->
@@ -39,45 +57,55 @@
       <h2 class="text-3xl font-semibold mb-6">Habilidades</h2>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
 
-        <div class="flex flex-col items-center">
+        <!-- Exemplo de ícone com efeito -->
+        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-html5-plain text-5xl text-orange-500"></i>
-          <p>HTML</p>
+          <p class="mt-2">HTML</p>
         </div>
-        <div class="flex flex-col items-center">
+
+        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-css3-plain text-5xl text-blue-500"></i>
-          <p>CSS</p>
+          <p class="mt-2">CSS</p>
         </div>
-        <div class="flex flex-col items-center">
+
+        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-javascript-plain text-5xl text-yellow-400"></i>
-          <p>JavaScript</p>
+          <p class="mt-2">JavaScript</p>
         </div>
-        <div class="flex flex-col items-center">
+
+        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-react-original text-5xl"></i>
-          <p>React</p>
+          <p class="mt-2">React</p>
         </div>
-        <div class="flex flex-col items-center">
+
+        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-angularjs-plain text-5xl text-red-600"></i>
-          <p>Angular</p>
+          <p class="mt-2">Angular</p>
         </div>
-        <div class="flex flex-col items-center">
+
+        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-tailwindcss-plain text-5xl"></i>
-          <p>TailwindCSS</p>
+          <p class="mt-2">TailwindCSS</p>
         </div>
-        <div class="flex flex-col items-center">
+
+        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-nodejs-plain text-5xl text-green-600"></i>
-          <p>Node.js</p>
+          <p class="mt-2">Node.js</p>
         </div>
-        <div class="flex flex-col items-center">
+
+        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-python-plain text-5xl text-blue-400"></i>
-          <p>Python</p>
+          <p class="mt-2">Python</p>
         </div>
-        <div class="flex flex-col items-center">
+
+        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-mysql-plain text-5xl text-blue-500"></i>
-          <p>SQL / MySQL</p>
+          <p class="mt-2">SQL / MySQL</p>
         </div>
-        <div class="flex flex-col items-center">
+
+        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-github-original text-5xl"></i>
-          <p>Git & GitHub</p>
+          <p class="mt-2">Git & GitHub</p>
         </div>
 
       </div>
@@ -87,7 +115,7 @@
   <!-- Formação -->
   <section class="max-w-6xl mx-auto px-6 py-12">
     <h2 class="text-3xl font-semibold mb-4">Formação</h2>
-    <ul class="list-disc pl-6 text-lg">
+    <ul class="list-disc pl-6 text-lg space-y-2">
       <li><strong>Cursando (2027):</strong> Análise e Desenvolvimento de Sistemas – UNINTER</li>
       <li><strong>2025:</strong> Curso de Habilitação em Programação – Mentes Brilhantes, LUPO</li>
       <li><strong>2016:</strong> Técnico em Segurança no Trabalho – IFMA</li>
