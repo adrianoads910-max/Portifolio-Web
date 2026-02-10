@@ -1,0 +1,12 @@
+/* style.css */
+
+/* Ajuste fino para a paginação do Swiper não sobrepor o conteúdo */
+.swiper-pagination {
+    position: relative;
+    margin-top: 20px;
+}
+
+/* Garante que os slides tenham altura flexível para o card ocupar tudo */
+.swiper-slide {
+    height: auto;
+}

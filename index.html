@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio - Adriano Souza Fonseca</title>
 
+  <link rel="stylesheet" href="style.css">
+
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -18,17 +20,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
-  <style>
-    /* Ajuste fino para a paginação do Swiper não sobrepor o conteúdo */
-    .swiper-pagination {
-      position: relative;
-      margin-top: 20px;
-    }
-    .swiper-slide {
-      height: auto; /* Garante que os slides tenham altura flexível */
-    }
-  </style>
 </head>
 <body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition">
 
@@ -38,19 +29,15 @@
       <h1 class="text-xl md:text-2xl font-bold leading-tight">Adriano Souza Fonseca</h1>
       
       <div class="flex items-center gap-3 md:gap-6">
-
         <nav class="flex items-center gap-3 md:gap-6 text-lg">
-          
           <a href="mailto:adrianoads910@gmail.com" class="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition" aria-label="E-mail">
             <i class="fa-solid fa-envelope text-xl"></i> 
             <span class="hidden md:inline">E-mail</span>
           </a>
-
           <a href="https://www.linkedin.com/in/adriano-souza-fonseca-868976300" target="_blank" class="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition" aria-label="LinkedIn">
             <i class="fa-brands fa-linkedin text-xl"></i>
             <span class="hidden md:inline">LinkedIn</span>
           </a>
-
           <a href="https://github.com/adrianoads910-max" target="_blank" class="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition" aria-label="GitHub">
             <i class="fa-brands fa-github text-xl"></i>
             <span class="hidden md:inline">GitHub</span>
@@ -60,7 +47,6 @@
         <button id="theme-toggle" class="text-xl p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
           <i id="theme-icon" class="fa-solid fa-moon"></i>
         </button>
-        
       </div>
     </div>
   </header>
@@ -89,42 +75,34 @@
           <i class="devicon-html5-plain text-5xl text-orange-500"></i>
           <p class="mt-2">HTML</p>
         </div>
-
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-css3-plain text-5xl text-blue-500"></i>
           <p class="mt-2">CSS</p>
         </div>
-
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-javascript-plain text-5xl text-yellow-400"></i>
           <p class="mt-2">JavaScript</p>
         </div>
-
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-react-original text-5xl"></i>
           <p class="mt-2">React</p>
         </div>
-
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-angularjs-plain text-5xl text-red-600"></i>
           <p class="mt-2">Angular</p>
         </div>
-
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-tailwindcss-plain text-5xl"></i>
           <p class="mt-2">TailwindCSS</p>
         </div>
-
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-nodejs-plain text-5xl text-green-600"></i>
           <p class="mt-2">Node.js</p>
         </div>
-
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-python-plain text-5xl text-blue-400"></i>
           <p class="mt-2">Python</p>
         </div>
-
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-mysql-plain text-5xl text-blue-500"></i>
           <p class="mt-2">SQL / MySQL</p>
@@ -133,7 +111,6 @@
           <i class="fa-solid fa-code-branch text-5xl text-purple-500"></i>
           <p class="mt-2">API / REST</p>
         </div>
-
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-github-original text-5xl"></i>
           <p class="mt-2">Git & GitHub</p>
@@ -147,10 +124,13 @@
           <i class="devicon-photoshop-plain text-5xl text-blue-500"></i>
           <p class="mt-2">Adobe Photoshop</p>
         </div>
-
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-illustrator-plain text-5xl text-orange-500"></i>
           <p class="mt-2">Adobe Illustrator</p>
+        </div>
+        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
+          <i class="devicon-figma-plain text-5xl text-purple-500"></i>
+          <p class="mt-2">Figma</p>
         </div>
       </div>
     </div>
@@ -194,7 +174,7 @@
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-semibold mb-8">Projetos</h2>
       
-      <div class="swiper mySwiper pb-4"> 
+      <div class="swiper mySwiper pb-12"> 
         <div class="swiper-wrapper">
           
           <div class="swiper-slide h-auto">
@@ -389,54 +369,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-  <script>
-    // Configuração do Swiper com AUTOPLAY
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true, // Adicionei loop para ele nunca parar de rodar (voltar ao inicio)
-      autoplay: {
-        delay: 3000, // Tempo em milissegundos (3000 = 3 segundos)
-        disableOnInteraction: false, // Continua rodando mesmo depois de alguém mexer
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        1024: {
-          slidesPerView: 3,
-          spaceBetween: 30,
-        },
-      },
-    });
-
-    // Dark Mode Script (Mantenha igual)
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const html = document.documentElement;
-
-    if (localStorage.getItem('theme') === 'dark') {
-      html.classList.add('dark');
-      themeIcon.classList.replace('fa-moon', 'fa-sun');
-    }
-
-    themeToggle.addEventListener('click', () => {
-      html.classList.toggle('dark');
-      if (html.classList.contains('dark')) {
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-        localStorage.setItem('theme', 'light');
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
