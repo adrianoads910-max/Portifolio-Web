@@ -5,44 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio - Adriano Souza Fonseca</title>
 
-  <!-- TailwindCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Configuração para habilitar modo escuro nas classes -->
   <script>
     tailwind.config = {
       darkMode: 'class'
     }
   </script>
 
-  <!-- Devicon Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
-  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    /* Ajuste fino para a paginação do Swiper não sobrepor o conteúdo */
+    .swiper-pagination {
+      position: relative;
+      margin-top: 20px;
+    }
+    .swiper-slide {
+      height: auto; /* Garante que os slides tenham altura flexível */
+    }
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition">
 
-  <!-- Header -->
   <header class="bg-white dark:bg-gray-800 shadow-md transition">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Adriano Souza Fonseca</h1>
-      <div class="flex items-center gap-6">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+      
+      <h1 class="text-xl md:text-2xl font-bold leading-tight">Adriano Souza Fonseca</h1>
+      
+      <div class="flex items-center gap-3 md:gap-6">
 
-        <!-- Navegação -->
-        <nav class="flex space-x-6 text-lg">
-          <a href="mailto:adrianoads910@gmail.com" class="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition">
-            <i class="fa-solid fa-envelope"></i> E-mail
+        <nav class="flex items-center gap-3 md:gap-6 text-lg">
+          
+          <a href="mailto:adrianoads910@gmail.com" class="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition" aria-label="E-mail">
+            <i class="fa-solid fa-envelope text-xl"></i> 
+            <span class="hidden md:inline">E-mail</span>
           </a>
-          <a href="https://www.linkedin.com/in/adriano-souza-fonseca-868976300" target="_blank" class="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
+
+          <a href="https://www.linkedin.com/in/adriano-souza-fonseca-868976300" target="_blank" class="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin text-xl"></i>
+            <span class="hidden md:inline">LinkedIn</span>
           </a>
-          <a href="https://github.com/adrianoads910-max" target="_blank" class="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition">
-            <i class="fa-brands fa-github"></i> GitHub
+
+          <a href="https://github.com/adrianoads910-max" target="_blank" class="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition" aria-label="GitHub">
+            <i class="fa-brands fa-github text-xl"></i>
+            <span class="hidden md:inline">GitHub</span>
           </a>
         </nav>
 
-        <!-- Botão do Dark Mode -->
         <button id="theme-toggle" class="text-xl p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
           <i id="theme-icon" class="fa-solid fa-moon"></i>
         </button>
@@ -51,7 +65,6 @@
     </div>
   </header>
 
-  <!-- Sobre Mim -->
   <section class="max-w-6xl mx-auto px-6 py-12">
     <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
       <img src="public/profile.jpeg" alt="foto pessoal"
@@ -68,12 +81,10 @@
     </div>
   </section>
 
-  <!-- Habilidades -->
   <section class="bg-white dark:bg-gray-800 py-12 transition">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-semibold mb-6">Habilidades</h2>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
-        <!-- Ícones com hover -->
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-html5-plain text-5xl text-orange-500"></i>
           <p class="mt-2">HTML</p>
@@ -115,11 +126,6 @@
         </div>
 
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-java-plain text-5xl text-red-600"></i>
-          <p class="mt-2">Java</p>
-        </div>
-
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-mysql-plain text-5xl text-blue-500"></i>
           <p class="mt-2">SQL / MySQL</p>
         </div>
@@ -137,7 +143,6 @@
      <div class="max-w-6xl mx-auto px-6 mt-12">
       <h2 class="text-3xl font-semibold mb-6"> Outras Habilidades</h2>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
-        <!-- Ícones com hover -->
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-photoshop-plain text-5xl text-blue-500"></i>
           <p class="mt-2">Adobe Photoshop</p>
@@ -145,13 +150,12 @@
 
         <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
           <i class="devicon-illustrator-plain text-5xl text-orange-500"></i>
-          <p class="mt-2">Adobe Photoshop</p>
+          <p class="mt-2">Adobe Illustrator</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Formação -->
   <section class="max-w-6xl mx-auto px-6 py-12">
     <h2 class="text-3xl font-semibold mb-4">Formação</h2>
     <ul class="list-disc pl-6 text-lg space-y-2">
@@ -161,8 +165,9 @@
       <li><strong>2012:</strong> Designer Gráfico – Soft Informática</li>
     </ul>
   </section>
+
   <section class="bg-white dark:bg-gray-800 py-12 transition">
-    <section class="max-w-6xl mx-auto px-6 py-12 ">
+    <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-semibold mb-4">Certificações</h2>
       <ul class="list-disc pl-6 text-lg space-y-2">
         <li><strong>2025:</strong> Python 1 – CISCO</li>
@@ -175,190 +180,248 @@
         <li><strong>2025:</strong> Transformando Dados em Insights com SageMaker Canvas - DIO</li>
         <li><strong>2025:</strong> Fundamentos de Dados para IA & Machine Learning - DIO</li>
       </ul>
-    </section>
+    </div>
   </section>
 
-    <!-- Experiência -->
   <section class="max-w-6xl mx-auto px-6 py-12">
     <h2 class="text-3xl font-semibold mb-4">Experiência</h2>
     <ul class="list-disc pl-6 text-lg space-y-2">
       <li><strong>2025 - presente:</strong> Estágio Desenvolvedor Front-End – CYRRUS</li>
-
     </ul>
   </section>
 
-  <!-- Projetos -->
   <section class="bg-white dark:bg-gray-800 py-12 transition">
     <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-semibold mb-8">Projetos</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <!-- Projeto 1 -->
-    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md">
-    <a href="https://adrianoads910-max.github.io/PokeApi-FullStack/" target="_blank">
-      <img src="public/projetos/pokeapi2.png" alt="PokeApi Preview" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-    </a>
-    <h3 class="text-xl font-semibold mb-2">PokeApi-FullStack</h3>
-    <p class="text-sm mb-4">Aplicação full-stack que consome a PokéAPI, com autenticação de usuários, sistema de favoritos e busca de Pokémons.</p>
-    <a href="https://github.com/adrianoads910-max/PokeApi-FullStack" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-    <i class="fa-brands fa-github"></i> Ver Repositório
-    </a>
-    <a href="https://adrianoads910-max.github.io/PokeApi-FullStack/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2">
-    <i class="fa-solid fa-globe"></i> Ver Página
-    </a>
-    </div>
-    <!-- Projeto 2 -->
-    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md">
-    <a href="https://github.com/adrianoads910-max/Restaurant-Analytics-API" target="_blank">
-      <img src="public/projetos/dashboard.jpeg" alt="PokeApi Preview" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-    </a>
-    <h3 class="text-xl font-semibold mb-2">Restaurant-Analytics-API</h3>
-    <p class="text-sm mb-4">Dashboard moderno para análise de vendas e performance de restaurantes.</p>
-    <a href="https://github.com/adrianoads910-max/Restaurant-Analytics-API" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-    <i class="fa-brands fa-github"></i> Ver Repositório
-    </a>
-     <a href="https://github.com/adrianoads910-max/Restaurant-Analytics-APIo" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2">
-    <i class="fa-solid fa-globe"></i> Ver Página
-    </a>
-    </div>
-    <!-- Projeto 3 -->
-    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md">
-    <a href="https://github.com/adrianoads910-max/code-studio" target="_blank">
-      <img src="public/projetos/codestudio.png" alt="PokeApi Preview" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-    </a>
-    <h3 class="text-xl font-semibold mb-2">CodeEstudio</h3>
-    <p class="text-sm mb-4">Plataforma full-stack voltada para ensino e aprendizagem de programação básica.</p>
-    <a href="https://github.com/adrianoads910-max/code-studio" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-    <i class="fa-brands fa-github"></i> Ver Repositório
-    </a>
-     <a href="https://github.com/adrianoads910-max/code-studio" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2">
-    <i class="fa-solid fa-globe"></i> Ver Página
-    </a>
-    </div>
-    <!-- Projeto 4 -->
-    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md">
-    <a href="https://github.com/adrianoads910-max/labnews" target="_blank">
-      <img src="public/projetos/labnews.png" alt="PokeApi Preview" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-    </a>  
-    <h3 class="text-xl font-semibold mb-2">LabNews</h3>
-    <p class="text-sm mb-4">Projeto front-end de uma loja de produtos químicos, com layout responsivo e componentes reutilizáveis.</p>
-    <a href="https://github.com/adrianoads910-max/labnews" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-    <i class="fa-brands fa-github"></i> Ver Repositório
-    </a>
-     <a href="https://github.com/adrianoads910-max/labnews" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2">
-    <i class="fa-solid fa-globe"></i> Ver Página
-    </a>
-    </div>
+      <h2 class="text-3xl font-semibold mb-8">Projetos</h2>
+      
+      <div class="swiper mySwiper pb-4"> 
+        <div class="swiper-wrapper">
+          
+          <div class="swiper-slide h-auto">
+            <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
+              <a href="https://adrianoads910-max.github.io/PokeApi-FullStack/" target="_blank">
+                <img src="public/projetos/pokeapi2.png" alt="PokeApi Preview" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
+              </a>
+              <h3 class="text-xl font-semibold mb-2">PokeApi-FullStack</h3>
+              <p class="text-sm mb-4 flex-grow">Aplicação full-stack que consome a PokéAPI, com autenticação de usuários, sistema de favoritos e busca de Pokémons.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/adrianoads910-max/PokeApi-FullStack" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
+                  <i class="fa-brands fa-github"></i> Ver Repositório
+                </a>
+                <a href="https://adrianoads910-max.github.io/PokeApi-FullStack/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
+                  <i class="fa-solid fa-globe"></i> Ver Página
+                </a>
+              </div>
+            </div>
+          </div>
 
-    <!-- Projeto 5 -->
-    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md">
-    <a href="https://adrianoads910-max.github.io/Login-Register/" target="_blank">
-      <img src="public/projetos/login.png" alt="Login-Register Preview" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-    </a>  
-    <h3 class="text-xl font-semibold mb-2">Login-Register</h3>
-    <p class="text-sm mb-4">Um projeto simples e funcional de login e cadastro de usuários feito em React, com interface moderna e validações básicas. Ideal para aprendizado ou como base para sistemas maiores de autenticação..</p>
-    <a href="https://github.com/adrianoads910-max/Login-Register" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-    <i class="fa-brands fa-github"></i> Ver Repositório
-    </a>
-     <a href="https://adrianoads910-max.github.io/Login-Register/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2">
-    <i class="fa-solid fa-globe"></i> Ver Página
-    </a>
-    </div>
+          <div class="swiper-slide h-auto">
+            <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
+              <a href="https://github.com/adrianoads910-max/Restaurant-Analytics-API" target="_blank">
+                <img src="public/projetos/dashboard.jpeg" alt="Restaurant Analytics" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
+              </a>
+              <h3 class="text-xl font-semibold mb-2">Restaurant-Analytics-API</h3>
+              <p class="text-sm mb-4 flex-grow">Dashboard moderno para análise de vendas e performance de restaurantes.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/adrianoads910-max/Restaurant-Analytics-API" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
+                  <i class="fa-brands fa-github"></i> Ver Repositório
+                </a>
+                <a href="https://github.com/adrianoads910-max/Restaurant-Analytics-APIo" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
+                  <i class="fa-solid fa-globe"></i> Ver Página
+                </a>
+              </div>
+            </div>
+          </div>
 
-    <!-- Projeto 6 -->
-    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md">
-    <a href="https://adrianoads910-max.github.io/ToDoList/" target="_blank">
-      <img src="public/projetos/todolist.png" alt="PokeApi Preview" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-    </a>   
-    <h3 class="text-xl font-semibold mb-2">ToDoList</h3>
-    <p class="text-sm mb-4">Um gerenciador de tarefas estilo Kanban, simples e funcional, feito com HTML + JavaScript puro + TailwindCSS via CDN.</p>
-    <a href="https://github.com/adrianoads910-max/ToDoList" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-    <i class="fa-brands fa-github"></i> Ver Repositório
-    </a>
-    </a>
-     <a href="https://adrianoads910-max.github.io/ToDoList/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2">
-    <i class="fa-solid fa-globe"></i> Ver Página
-    </a>
-    </div>
+          <div class="swiper-slide h-auto">
+            <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
+              <a href="https://github.com/adrianoads910-max/code-studio" target="_blank">
+                <img src="public/projetos/codestudio.png" alt="CodeStudio" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
+              </a>
+              <h3 class="text-xl font-semibold mb-2">CodeEstudio</h3>
+              <p class="text-sm mb-4 flex-grow">Plataforma full-stack voltada para ensino e aprendizagem de programação básica.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/adrianoads910-max/code-studio" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
+                  <i class="fa-brands fa-github"></i> Ver Repositório
+                </a>
+                <a href="https://github.com/adrianoads910-max/code-studio" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
+                  <i class="fa-solid fa-globe"></i> Ver Página
+                </a>
+              </div>
+            </div>
+          </div>
 
-    <!-- Projeto 7 -->
-    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md">
-    <a href="https://adrianoads910-max.github.io/goldfit/" target="_blank">
-      <img src="public/projetos/goldfit.png" alt="PokeApi Preview" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-    </a>   
-    <h3 class="text-xl font-semibold mb-2">Goldfit</h3>
-    <p class="text-sm mb-4">Aplicação Web/Plataforma para gerenciamento e visualização de serviços, treinos e ofertas no nicho fitness e wellness. Foco em oferecer uma interface clara e completa para usuários se conectarem com programas de treino, planos, instrutores e conteúdos relacionados ao mundo fitness.</p>
-    <a href="https://github.com/adrianoads910-max/goldfit" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-    <i class="fa-brands fa-github"></i> Ver Repositório
-    </a>
-    </a>
-     <a href="https://adrianoads910-max.github.io/goldfit/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2">
-    <i class="fa-solid fa-globe"></i> Ver Página
-    </a>
-    </div>
+          <div class="swiper-slide h-auto">
+            <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
+              <a href="https://github.com/adrianoads910-max/labnews" target="_blank">
+                <img src="public/projetos/labnews.png" alt="LabNews" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
+              </a>  
+              <h3 class="text-xl font-semibold mb-2">LabNews</h3>
+              <p class="text-sm mb-4 flex-grow">Projeto front-end de uma loja de produtos químicos, com layout responsivo e componentes reutilizáveis.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/adrianoads910-max/labnews" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
+                  <i class="fa-brands fa-github"></i> Ver Repositório
+                </a>
+                <a href="https://github.com/adrianoads910-max/labnews" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
+                  <i class="fa-solid fa-globe"></i> Ver Página
+                </a>
+              </div>
+            </div>
+          </div>
 
-    <!-- Projeto 8 -->
-    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md">
-    <a href="https://adrianoads910-max.github.io/projeto-em-dupla/" target="_blank">
-      <img src="public/projetos/cafeteria.png" alt="PokeApi Preview" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-    </a>   
-    <h3 class="text-xl font-semibold mb-2">Cafeteria por do sol</h3>
-    <p class="text-sm mb-4">Projeto “teste de cafeteria” — um site simples de demonstração de layout e interface para uma cafeteria.</p>
-    <a href="https://github.com/adrianoads910-max/cafeteria" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-    <i class="fa-brands fa-github"></i> Ver Repositório
-    </a>
-    </a>
-     <a href="https://adrianoads910-max.github.io/projeto-em-dupla/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2">
-    <i class="fa-solid fa-globe"></i> Ver Página
-    </a>
-    </div>
+          <div class="swiper-slide h-auto">
+            <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
+              <a href="https://adrianoads910-max.github.io/Login-Register/" target="_blank">
+                <img src="public/projetos/login.png" alt="Login-Register" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
+              </a>  
+              <h3 class="text-xl font-semibold mb-2">Login-Register</h3>
+              <p class="text-sm mb-4 flex-grow">Um projeto simples e funcional de login e cadastro de usuários feito em React, com interface moderna e validações básicas.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/adrianoads910-max/Login-Register" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
+                  <i class="fa-brands fa-github"></i> Ver Repositório
+                </a>
+                <a href="https://adrianoads910-max.github.io/Login-Register/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
+                  <i class="fa-solid fa-globe"></i> Ver Página
+                </a>
+              </div>
+            </div>
+          </div>
 
-     <!-- Projeto 9 -->
-    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md">
-    <a href="https://github.com/adrianoads910-max/list-product-api" target="_blank">
-      <img src="public/projetos/unknow.jpg" alt="PokeApi Preview" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-    </a>   
-    <h3 class="text-xl font-semibold mb-2">List-Product-API</h3>
-    <p class="text-sm mb-4">Este projeto implementa uma API REST básica que permite o cadastro, consulta, atualização e remoção de produtos. Ideal como base para microserviços de e-commerce, inventário ou protótipos rápidos.</p>
-    <a href="https://github.com/adrianoads910-max/list-product-api" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-    <i class="fa-brands fa-github"></i> Ver Repositório
-    </a>
-    </a>
-     <a href="https://github.com/adrianoads910-max/list-product-api" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2">
-    <i class="fa-solid fa-globe"></i> Ver Página
-    </a>
-    </div>
-    <!-- Projeto 10 -->
-    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md">
-    <a href="https://github.com/adrianoads910-max/Korp_Teste_Adriano" target="_blank">
-      <img src="public/projetos/notas.png" alt="Sistema de Gestão" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-    </a>   
-    <h3 class="text-xl font-semibold mb-2">Sistema de Gestão</h3>
-    <p class="text-sm mb-4">Sistema de faturamento desenvolvido para gerenciamento financeiro, com autenticação de usuários (login e logout), cadastro e controle de faturas.</p>
-    <a href="https://github.com/adrianoads910-max/Korp_Teste_Adriano" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-    <i class="fa-brands fa-github"></i> Ver Repositório
-    </a>
-    </a>
-     <a href="https://adrianoads910-max.github.io/Korp_Teste_Adriano/login" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2">
-    <i class="fa-solid fa-globe"></i> Ver Página
-    </a>
-    </div>
+          <div class="swiper-slide h-auto">
+            <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
+              <a href="https://adrianoads910-max.github.io/ToDoList/" target="_blank">
+                <img src="public/projetos/todolist.png" alt="ToDoList" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
+              </a>   
+              <h3 class="text-xl font-semibold mb-2">ToDoList</h3>
+              <p class="text-sm mb-4 flex-grow">Um gerenciador de tarefas estilo Kanban, simples e funcional, feito com HTML + JavaScript puro + TailwindCSS via CDN.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/adrianoads910-max/ToDoList" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
+                  <i class="fa-brands fa-github"></i> Ver Repositório
+                </a>
+                <a href="https://adrianoads910-max.github.io/ToDoList/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
+                  <i class="fa-solid fa-globe"></i> Ver Página
+                </a>
+              </div>
+            </div>
+          </div>
 
-    </div>
+          <div class="swiper-slide h-auto">
+            <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
+              <a href="https://adrianoads910-max.github.io/goldfit/" target="_blank">
+                <img src="public/projetos/goldfit.png" alt="Goldfit" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
+              </a>   
+              <h3 class="text-xl font-semibold mb-2">Goldfit</h3>
+              <p class="text-sm mb-4 flex-grow">Aplicação Web/Plataforma para gerenciamento e visualização de serviços, treinos e ofertas no nicho fitness e wellness.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/adrianoads910-max/goldfit" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
+                  <i class="fa-brands fa-github"></i> Ver Repositório
+                </a>
+                <a href="https://adrianoads910-max.github.io/goldfit/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
+                  <i class="fa-solid fa-globe"></i> Ver Página
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
+              <a href="https://adrianoads910-max.github.io/projeto-em-dupla/" target="_blank">
+                <img src="public/projetos/cafeteria.png" alt="Cafeteria" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
+              </a>   
+              <h3 class="text-xl font-semibold mb-2">Cafeteria por do sol</h3>
+              <p class="text-sm mb-4 flex-grow">Projeto “teste de cafeteria” — um site simples de demonstração de layout e interface para uma cafeteria.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/adrianoads910-max/cafeteria" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
+                  <i class="fa-brands fa-github"></i> Ver Repositório
+                </a>
+                <a href="https://adrianoads910-max.github.io/projeto-em-dupla/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
+                  <i class="fa-solid fa-globe"></i> Ver Página
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
+              <a href="https://github.com/adrianoads910-max/list-product-api" target="_blank">
+                <img src="public/projetos/unknow.jpg" alt="List Product API" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
+              </a>   
+              <h3 class="text-xl font-semibold mb-2">List-Product-API</h3>
+              <p class="text-sm mb-4 flex-grow">API REST básica que permite o cadastro, consulta, atualização e remoção de produtos.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/adrianoads910-max/list-product-api" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
+                  <i class="fa-brands fa-github"></i> Ver Repositório
+                </a>
+                <a href="https://github.com/adrianoads910-max/list-product-api" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
+                  <i class="fa-solid fa-globe"></i> Ver Página
+                </a>
+              </div>
+            </div>
+          </div>
+
+           <div class="swiper-slide h-auto">
+            <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
+              <a href="https://github.com/adrianoads910-max/Korp_Teste_Adriano" target="_blank">
+                <img src="public/projetos/notas.png" alt="Sistema de Gestão" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
+              </a>   
+              <h3 class="text-xl font-semibold mb-2">Sistema de Gestão</h3>
+              <p class="text-sm mb-4 flex-grow">Sistema de faturamento desenvolvido para gerenciamento financeiro, com autenticação de usuários e controle de faturas.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/adrianoads910-max/Korp_Teste_Adriano" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
+                  <i class="fa-brands fa-github"></i> Ver Repositório
+                </a>
+                <a href="https://adrianoads910-max.github.io/Korp_Teste_Adriano/login" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
+                  <i class="fa-solid fa-globe"></i> Ver Página
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-gray-900 dark:bg-black text-white text-center py-6">
     <p>&copy; 2025 - Desenvolvido por Adriano Souza Fonseca</p>
   </footer>
 
-  <!-- Script do Dark Mode -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
   <script>
+    // Configuração do Swiper com AUTOPLAY
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true, // Adicionei loop para ele nunca parar de rodar (voltar ao inicio)
+      autoplay: {
+        delay: 3000, // Tempo em milissegundos (3000 = 3 segundos)
+        disableOnInteraction: false, // Continua rodando mesmo depois de alguém mexer
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+    });
+
+    // Dark Mode Script (Mantenha igual)
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
     const html = document.documentElement;
 
-    // Verifica o tema salvo anteriormente
     if (localStorage.getItem('theme') === 'dark') {
       html.classList.add('dark');
       themeIcon.classList.replace('fa-moon', 'fa-sun');
