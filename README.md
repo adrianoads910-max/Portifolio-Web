@@ -1,93 +1,47 @@
+# Portfólio — Adriano Souza Fonseca
 
-# 💼 Portfólio - Adriano Souza Fonseca
+Site refeito do zero em **HTML5 + CSS3 + JavaScript puros**, sem nenhum framework
+(Tailwind, Bootstrap, React, Swiper, Font Awesome, Devicon, etc.), para atender
+às exigências da Atividade Prática de Fundamentos da Programação Web.
 
-Este é o meu portfólio pessoal desenvolvido com **HTML + TailwindCSS + Devicon**, onde apresento minhas habilidades, formação e links para contato. O projeto foi criado com foco em simplicidade, responsividade e visual moderno.
+## Estrutura
+```
+portfolio-adriano/
+├── index.html      → as 4 seções obrigatórias (Sobre mim, Formação, Portfólio, Contato)
+├── style.css       → CSS puro, com tema claro/escuro via variáveis CSS
+├── script.js       → JS puro: tema, menu mobile, terminal animado, validação do formulário
+└── public/
+    ├── profile.jpeg          → sua foto (copie a sua foto atual para aqui)
+    └── projetos/*.png/.jpg   → prints dos seus projetos (copie os mesmos arquivos do site antigo)
+```
 
----
+**Importante:** copie sua pasta `public/` (foto de perfil e imagens dos projetos) do
+site antigo para dentro desta nova pasta — os nomes dos arquivos já estão mantidos
+iguais ao seu portfólio anterior, então basta colar a pasta `public` aqui dentro.
 
-## 🚀 Tecnologias Utilizadas
+## O que foi removido/trocado em relação ao site antigo
+- ❌ Tailwind CSS (proibido) → ✅ CSS3 puro com variáveis (`style.css`)
+- ❌ Font Awesome / Devicon (bibliotecas externas) → ✅ removidos; visual baseado em tipografia
+- ❌ Swiper.js (biblioteca de carrossel) → ✅ grade (`grid`) de projetos em CSS puro
+- ✅ Mantidos: seu conteúdo real (currículo, formação, certificações, projetos)
+- ✅ Adicionados: validação de formulário em JS puro, simulação de envio com mensagem
+  de sucesso, menu mobile (hambúrguer) e alternância de tema claro/escuro — tudo
+  sem bibliotecas, conforme a seção 5 do enunciado.
 
-- **HTML5**
-- **TailwindCSS (via CDN)**
-- **Devicon (ícones de tecnologias)**
-- **FontAwesome (ícones de redes sociais)**
+## Como publicar no GitHub Pages (50% da nota)
+1. Crie um repositório público no GitHub. **O endereço final precisa conter seu nome**,
+   então nomeie o repositório, por exemplo: `portfolio-adriano-souza-fonseca`.
+2. Suba os arquivos desta pasta (`index.html`, `style.css`, `script.js`, `public/`) para
+   a raiz do repositório.
+3. Vá em **Settings → Pages → Branch: main → / (root) → Save**.
+4. Seu site ficará disponível em algo como:
+   `https://adrianoads910-max.github.io/portfolio-adriano-souza-fonseca/`
+   (esse endereço já contém seu nome, atendendo à exigência do enunciado).
 
----
-
-## 📌 Funcionalidades
-
-✅ Layout responsivo para mobile, tablet e desktop  
-✅ Seção "Sobre Mim" com foto de perfil  
-✅ Ícones interativos de habilidades (hover + scale)  
-✅ Links clicáveis para **E-mail**, **LinkedIn** e **GitHub** com ícones  
-✅ Estrutura pronta para adicionar **projetos e dark mode**
-
----
-
-## 📁 Estrutura de Pastas
-
-```bash
-.
-├── index.html        # Página principal do portfólio
-├── public/
-│   └── profile.jpeg  # Foto de perfil utilizada no site
-└── README.md         # Documentação do projeto
-````
-
----
-
-## 🎨 Pré-visualização
-
-Você pode acessar o portfólio diretamente no navegador ou publicar no GitHub Pages (Deploy simples com HTML estático).
-
-Se quiser publicar:
-
-1. Suba este repositório no GitHub;
-2. Vá em **Settings > Pages**;
-3. Em *Source*, selecione `main` e a pasta `/root`;
-4. Salve e aguarde o link ficar disponível.
-
----
-
-## 📷 Screenshot (exemplo)
-
-*(Se quiser, posso gerar uma imagem do site e colocar aqui depois)*
-
----
-
-## 👨‍💻 Sobre Mim
-
-Sou estudante de **Análise e Desenvolvimento de Sistemas** e desenvolvedor **Full-Stack Jr** com experiência em:
-
-* Desenvolvimento de interfaces web responsivas
-* Manipulação de dados, SQL e automação com Python
-* React, Angular, TailwindCSS, Node.js e Git/GitHub
-* Interesse em dados, backend e UI com boas práticas
-
----
-
-## 📬 Contato
-
-| Plataforma   | Link                                                                                                                       |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| **E-mail**   | [adrianoads910@gmail.com](mailto:adrianoads910@gmail.com)                                                                  |
-| **LinkedIn** | [https://www.linkedin.com/in/adriano-souza-fonseca-868976300](https://www.linkedin.com/in/adriano-souza-fonseca-868976300) |
-| **GitHub**   | [https://github.com/adrianoads910-max](https://github.com/adrianoads910-max)                                               |
-
----
-
-## ✅ Futuras Melhorias
-
-* [ ] Dark Mode (tema claro/escuro)
-* [ ] Seção de Projetos com cards interativos
-* [ ] Animações com Framer Motion / AOS.js
-* [ ] Formulário de contato funcional
-* [ ] Deploy no GitHub Pages ou Vercel
-
----
-
-Se quiser contribuir ou sugerir alguma melhoria, fique à vontade para abrir uma *issue* ou enviar um *pull request*.
-
----
-
-💙 *Desenvolvido por Adriano Souza Fonseca*
+## Checklist antes de entregar
+- [ ] Testar todos os links (repositório e demo de cada projeto)
+- [ ] Confirmar que a foto e as imagens dos projetos aparecem corretamente
+- [ ] Testar o formulário de contato (campos vazios, e-mail inválido, envio válido)
+- [ ] Testar o menu mobile e o botão de tema claro/escuro
+- [ ] Confirmar que o link publicado **não** mostra `localhost` ou `127.0.0.1`
+- [ ] Tirar prints de cada seção com o endereço do GitHub Pages visível na barra do navegador

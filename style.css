@@ -1,12 +1,249 @@
-/* style.css */
+/*
+  style.css — Portfólio de Adriano Souza Fonseca
+  CSS3 puro, sem Bootstrap/Tailwind/qualquer framework.
+  Sistema de tema claro/escuro feito com variáveis CSS (custom properties),
+  alternado via atributo data-theme no <html> (controlado por script.js).
+*/
 
-/* Ajuste fino para a paginação do Swiper não sobrepor o conteúdo */
-.swiper-pagination {
-    position: relative;
-    margin-top: 20px;
+/* ---------- 1. TOKENS DE DESIGN (tema claro = padrão) ---------- */
+:root {
+  --bg: #f4f6f5;
+  --surface: #ffffff;
+  --surface-alt: #eef1f0;
+  --text: #14181a;
+  --text-muted: #51605f;
+  --border: #d8dfdd;
+  --accent: #0f9d72;
+  --accent-soft: #e1f7ee;
+  --accent2: #b9690a;
+  --shadow: 0 12px 30px -16px rgba(15, 24, 22, 0.25);
+
+  --font-mono: ui-monospace, SFMono-Regular, "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --radius: 10px;
+  --maxw: 1080px;
 }
 
-/* Garante que os slides tenham altura flexível para o card ocupar tudo */
-.swiper-slide {
-    height: auto;
+/* Tema escuro: mesma estrutura, paleta invertida estilo "editor de código" */
+html[data-theme="dark"] {
+  --bg: #0c1110;
+  --surface: #121817;
+  --surface-alt: #161d1c;
+  --text: #e7eeec;
+  --text-muted: #8aa39d;
+  --border: #233029;
+  --accent: #4fe3a8;
+  --accent-soft: rgba(79, 227, 168, 0.12);
+  --accent2: #ffb454;
+  --shadow: 0 12px 30px -16px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- 2. RESET MÍNIMO ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  transition: background-color .3s ease, color .3s ease;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3 { font-family: var(--font-mono); line-height: 1.2; margin: 0; }
+
+/* Foco visível para navegação por teclado (acessibilidade) */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Respeita usuários que preferem menos animação */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--accent); color: #06140f; padding: .5rem 1rem; z-index: 200;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+
+/* ---------- 3. MENU FIXO (visível em todas as seções) ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.topbar__inner {
+  max-width: var(--maxw); margin: 0 auto; padding: .9rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.brand {
+  font-family: var(--font-mono); font-weight: 700; font-size: 1.05rem;
+  color: var(--text); display: flex; align-items: center; gap: .5rem;
+}
+.brand:hover { text-decoration: none; }
+.brand__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.brand__muted { color: var(--text-muted); }
+
+.nav { display: flex; align-items: center; gap: 1.6rem; }
+.nav a { color: var(--text); font-size: .95rem; }
+.nav a:hover { color: var(--accent); text-decoration: none; }
+
+.theme-toggle {
+  background: var(--surface-alt); border: 1px solid var(--border); border-radius: 50%;
+  width: 36px; height: 36px; cursor: pointer; font-size: 1rem; color: var(--text);
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Botão hamburguer: escondido em telas largas */
+.nav-toggle {
+  display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px;
+}
+.nav-toggle span { width: 22px; height: 2px; background: var(--text); display: block; }
+
+/* ---------- 4. HERO + TERMINAL (elemento de assinatura) ---------- */
+.hero { max-width: var(--maxw); margin: 0 auto; padding: 4rem 1.5rem 3rem; }
+.hero__inner { display: grid; grid-template-columns: 1.3fr .7fr; gap: 3rem; align-items: center; }
+
+.eyebrow {
+  font-family: var(--font-mono); color: var(--accent2); font-size: .85rem; margin: 0 0 .6rem;
+}
+.hero__title { font-size: clamp(1.9rem, 4vw, 2.7rem); margin-bottom: .5rem; }
+.hero__role { color: var(--text-muted); max-width: 32ch; margin: 0 0 1.6rem; }
+
+.terminal {
+  background: #0c1110; border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); border: 1px solid #233029; max-width: 460px;
+}
+.terminal__bar {
+  background: #161d1c; padding: .5rem .75rem; display: flex; align-items: center; gap: 6px;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.dot--r { background: #ff5f57; } .dot--y { background: #febc2e; } .dot--g { background: #28c840; }
+.terminal__title { margin-left: .6rem; color: #8aa39d; font-family: var(--font-mono); font-size: .78rem; }
+.terminal__body { padding: 1.1rem 1.2rem 1.4rem; min-height: 64px; }
+.terminal__line {
+  display: inline; font-family: var(--font-mono); color: #4fe3a8; font-size: .92rem; margin: 0; white-space: pre-wrap;
+}
+.cursor { color: #4fe3a8; font-family: var(--font-mono); animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.hero__links { display: flex; gap: 1.2rem; font-family: var(--font-mono); font-size: .9rem; flex-wrap: wrap; }
+
+.hero__photo {
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius);
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+}
+
+/* ---------- 5. SEÇÕES GERAIS ---------- */
+.section { max-width: var(--maxw); margin: 0 auto; padding: 4rem 1.5rem; }
+.section--alt { background: var(--surface-alt); max-width: none; }
+.section--alt > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+.section--alt { padding-left: 0; padding-right: 0; }
+.section--alt .eyebrow, .section--alt .section__title, .section--alt .section__lead,
+.section--alt .timeline, .section--alt .cert-list, .section--alt .contact {
+  max-width: var(--maxw); margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem;
+}
+
+.section__title { font-size: clamp(1.6rem, 3vw, 2.1rem); margin-bottom: 1rem; }
+.section__lead { color: var(--text-muted); max-width: 60ch; margin-bottom: 2rem; }
+
+/* ---------- 6. SKILLS / TAGS ---------- */
+.skills { display: grid; gap: 1.6rem; }
+.skills__group { display: flex; flex-direction: column; gap: .6rem; }
+.skills__label { font-family: var(--font-mono); color: var(--accent2); font-size: .85rem; margin: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+.tag {
+  font-family: var(--font-mono); font-size: .82rem; padding: .35rem .7rem;
+  background: var(--accent-soft); color: var(--accent); border-radius: 6px; border: 1px solid var(--border);
+}
+.tags--sm .tag { font-size: .74rem; padding: .25rem .55rem; }
+
+/* ---------- 7. LINHA DO TEMPO (Formação / Experiência) ---------- */
+.timeline { display: flex; flex-direction: column; gap: 1.5rem; border-left: 2px solid var(--border); padding-left: 1.5rem; }
+.timeline__item h3 { font-size: 1.05rem; margin: .2rem 0; }
+.timeline__item p { margin: 0; color: var(--text-muted); }
+.timeline__date {
+  font-family: var(--font-mono); font-size: .8rem; color: var(--accent); display: inline-block;
+}
+.cert-list { display: flex; flex-direction: column; gap: .55rem; margin-top: .8rem; }
+.cert-list li { padding-left: 1.1rem; position: relative; color: var(--text-muted); }
+.cert-list li::before { content: "›"; position: absolute; left: 0; color: var(--accent); }
+
+/* ---------- 8. PROJETOS (grid CSS puro, sem carrossel de biblioteca) ---------- */
+.projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.6rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.1rem; display: flex; flex-direction: column; gap: .6rem; box-shadow: var(--shadow);
+}
+.card__img { width: 100%; height: 150px; object-fit: cover; border-radius: 6px; }
+.card h3 { font-size: 1rem; }
+.card p { margin: 0; color: var(--text-muted); font-size: .92rem; flex-grow: 1; }
+.card__links { display: flex; gap: 1rem; font-family: var(--font-mono); font-size: .85rem; margin-top: .3rem; }
+
+/* ---------- 9. CONTATO / FORMULÁRIO ---------- */
+.contact { display: grid; grid-template-columns: 1.4fr .6fr; gap: 2.5rem; }
+.contact__form { display: flex; flex-direction: column; gap: 1.1rem; }
+.field { display: flex; flex-direction: column; gap: .35rem; }
+.field label { font-family: var(--font-mono); font-size: .85rem; color: var(--text-muted); }
+.field input, .field textarea {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: .7rem .85rem; font-family: var(--font-sans); font-size: .95rem; color: var(--text); resize: vertical;
+}
+.field input:focus, .field textarea:focus { border-color: var(--accent); }
+.field.has-error input, .field.has-error textarea { border-color: #e0554a; }
+.field__error { color: #e0554a; font-size: .8rem; min-height: 1em; }
+
+.btn {
+  align-self: flex-start; background: var(--accent); color: #06140f; border: none;
+  padding: .8rem 1.6rem; border-radius: 8px; font-family: var(--font-mono); font-weight: 600;
+  cursor: pointer; transition: transform .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:disabled { opacity: .6; cursor: default; transform: none; }
+
+.form-success {
+  font-family: var(--font-mono); color: var(--accent); font-size: .9rem; min-height: 1.2em; margin: 0;
+}
+
+.contact__info p { margin: .4rem 0; color: var(--text-muted); }
+.contact__info strong { color: var(--text); }
+
+/* ---------- 10. RODAPÉ ---------- */
+.footer {
+  text-align: center; padding: 2rem 1.5rem; font-family: var(--font-mono);
+  color: var(--text-muted); font-size: .85rem; border-top: 1px solid var(--border);
+}
+.footer__exit { color: var(--accent2); }
+
+/* ---------- 11. RESPONSIVO ---------- */
+@media (max-width: 860px) {
+  .hero__inner { grid-template-columns: 1fr; }
+  .hero__photo { width: 180px; margin: 0 auto; }
+  .contact { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .nav-toggle { display: flex; }
+  .nav {
+    position: absolute; top: 100%; left: 0; right: 0; background: var(--surface);
+    flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-8px); opacity: 0; pointer-events: none; transition: all .2s ease;
+  }
+  .nav.is-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .topbar { position: sticky; }
+  .topbar__inner { position: relative; }
+}
+
+@media (max-width: 540px) {
+  .skills { grid-template-columns: 1fr; }
+  .projects { grid-template-columns: 1fr; }
 }

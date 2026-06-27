@@ -1,495 +1,401 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<!--
+  Portfólio pessoal — Adriano Souza Fonseca
+  Atividade Prática: Fundamentos da Programação Web — UNINTER
+  Regras seguidas: HTML5 + CSS3 puro + JavaScript puro (sem frameworks/bibliotecas).
+  Estrutura: Single Page com navegação por âncoras (item "b" do enunciado).
+-->
+<html lang="pt-BR" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio - Adriano Souza Fonseca</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adriano Souza Fonseca — Portfólio</title>
+  <meta name="description" content="Portfólio pessoal de Adriano Souza Fonseca, desenvolvedor FullStack." />
 
-  <link rel="stylesheet" href="style.css">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      darkMode: 'class'
-    }
-  </script>
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Nenhum CDN externo: zero frameworks de CSS/JS, conforme exigido na atividade -->
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition">
+<body>
 
-  <header class="bg-white dark:bg-gray-800 shadow-md transition">
-    <div class="max-w-6xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-      
-      <h1 class="text-xl md:text-2xl font-bold leading-tight">Adriano Souza Fonseca</h1>
-      
-      <div class="flex items-center gap-3 md:gap-6">
-        <nav class="flex items-center gap-3 md:gap-6 text-lg">
-          <a href="mailto:adrianoads910@gmail.com" class="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition" aria-label="E-mail">
-            <i class="fa-solid fa-envelope text-xl"></i> 
-            <span class="hidden md:inline">E-mail</span>
-          </a>
-          <a href="https://www.linkedin.com/in/adriano-souza-fonseca-868976300" target="_blank" class="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin text-xl"></i>
-            <span class="hidden md:inline">LinkedIn</span>
-          </a>
-          <a href="https://github.com/adrianoads910-max" target="_blank" class="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition" aria-label="GitHub">
-            <i class="fa-brands fa-github text-xl"></i>
-            <span class="hidden md:inline">GitHub</span>
-          </a>
-        </nav>
+  <!-- ===================== ACESSIBILIDADE: pular para o conteúdo ===================== -->
+  <a class="skip-link" href="#sobre">Pular para o conteúdo</a>
 
-        <button id="theme-toggle" class="text-xl p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-          <i id="theme-icon" class="fa-solid fa-moon"></i>
+  <!-- ===================== MENU FIXO (visível em todas as seções) ===================== -->
+  <header class="topbar">
+    <div class="topbar__inner">
+
+      <!-- "Aba" do editor de código com o nome, reforça a identidade visual -->
+      <a href="#topo" class="brand">
+        <span class="brand__dot" aria-hidden="true"></span>
+        adriano<span class="brand__muted">.fonseca</span>
+      </a>
+
+      <!-- Botão hamburguer: aparece só no mobile via CSS, controlado por JS puro -->
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="primaryNav" aria-label="Navegação principal">
+        <a href="#sobre">Sobre mim</a>
+        <a href="#formacao">Formação</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#contato">Contato</a>
+
+        <!-- Botão de tema claro/escuro, manipulado por JS puro -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema claro/escuro" type="button">
+          <span id="themeIcon">◐</span>
         </button>
-      </div>
+      </nav>
     </div>
   </header>
 
-  <section class="max-w-6xl mx-auto px-6 py-12">
-    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-      <img src="public/profile.jpeg" alt="foto pessoal"
-        class="w-60 h-60 object-cover rounded-full shadow-lg border-4 border-white dark:border-gray-700">
-      <div>
-        <h2 class="text-3xl font-semibold mb-4">Sobre Mim</h2>
-        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-          Desenvolvedor com foco no ecossistema JavaScript (React, Angular, Node.js) e Python. Atualmente atuando como Estagiário em Desenvolvimento FullStack, possuo sólida base em análise de dados e foco na construção de soluções robustas, escaláveis e interfaces responsivas. Experiência prática na criação de componentes reutilizáveis e integração de sistemas. 
-        </p>
+  <!-- ===================== HERO / ELEMENTO DE ASSINATURA ===================== -->
+  <section class="hero" id="topo">
+    <div class="hero__inner">
+      <div class="hero__text">
+        <p class="eyebrow">// olá, eu sou</p>
+        <h1 class="hero__title">Adriano Souza Fonseca</h1>
+        <p class="hero__role">Desenvolvedor FullStack &amp; Estudante de Análise e Desenvolvimento de Sistemas</p>
+
+        <!-- Janela de terminal: o elemento de assinatura visual da página -->
+        <div class="terminal" aria-hidden="true">
+          <div class="terminal__bar">
+            <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+            <span class="terminal__title">bash — adriano@dev</span>
+          </div>
+          <div class="terminal__body">
+            <p id="typedLine" class="terminal__line"></p>
+            <span class="cursor" id="cursor">█</span>
+          </div>
+        </div>
+
+        <div class="hero__links">
+          <a href="mailto:adrianoads910@gmail.com">~/email</a>
+          <a href="https://www.linkedin.com/in/adriano-souza-fonseca-868976300" target="_blank" rel="noopener">~/linkedin</a>
+          <a href="https://github.com/adrianoads910-max" target="_blank" rel="noopener">~/github</a>
+        </div>
       </div>
+
+      <img class="hero__photo" src="public/profile.jpeg" alt="Foto de Adriano Souza Fonseca" />
     </div>
   </section>
 
-  <section class="bg-white dark:bg-gray-800 py-12 transition">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl font-semibold mb-6">Habilidades</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-html5-plain text-5xl text-orange-500"></i>
-          <p class="mt-2">HTML</p>
+  <main>
+
+    <!-- ===================== SEÇÃO OBRIGATÓRIA 1: SOBRE MIM ===================== -->
+    <section class="section" id="sobre">
+      <p class="eyebrow">// 01 — sobre-mim</p>
+      <h2 class="section__title">Sobre mim</h2>
+
+      <p class="section__lead">
+        Sou desenvolvedor com foco no ecossistema JavaScript (React, Angular, Node.js, NestJS),
+        mobile (React Native) e Python. Atualmente atuo como Estagiário em Desenvolvimento
+        FullStack na Apollo Solutions Dev e como desenvolvedor freelancer na 100Contas, construindo
+        soluções escaláveis, interfaces responsivas e infraestrutura moderna com Docker e nuvem.
+        Tenho experiência prática em prototipagem com Figma e em integração de sistemas, além de
+        gosto por design gráfico — uma bagagem que carrego desde minha formação como Designer Gráfico.
+      </p>
+
+      <!-- Lista de habilidades organizada por categoria, estilo "tags de código" -->
+      <div class="skills">
+
+        <div class="skills__group">
+          <p class="skills__label">// front-end</p>
+          <ul class="tags">
+            <li class="tag">HTML5</li><li class="tag">CSS3</li><li class="tag">SCSS</li>
+            <li class="tag">JavaScript</li><li class="tag">TypeScript</li>
+            <li class="tag">React.js</li><li class="tag">Angular</li><li class="tag">Ionic</li>
+          </ul>
         </div>
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-css3-plain text-5xl text-blue-500"></i>
-          <p class="mt-2">CSS</p>
+
+        <div class="skills__group">
+          <p class="skills__label">// mobile</p>
+          <ul class="tags">
+            <li class="tag">React Native</li><li class="tag">Expo</li>
+          </ul>
         </div>
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-javascript-plain text-5xl text-yellow-400"></i>
-          <p class="mt-2">JavaScript</p>
+
+        <div class="skills__group">
+          <p class="skills__label">// back-end</p>
+          <ul class="tags">
+            <li class="tag">Node.js</li><li class="tag">Express</li><li class="tag">NestJS</li>
+            <li class="tag">Python</li><li class="tag">Java</li>
+          </ul>
         </div>
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-react-original text-5xl"></i>
-          <p class="mt-2">React Js & Native</p>
+
+        <div class="skills__group">
+          <p class="skills__label">// infra &amp; dados</p>
+          <ul class="tags">
+            <li class="tag">Docker</li><li class="tag">Google Cloud Platform</li>
+            <li class="tag">PostgreSQL</li><li class="tag">Prisma ORM</li><li class="tag">MySQL</li>
+            <li class="tag">Modelagem de Dados</li>
+          </ul>
         </div>
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-angularjs-plain text-5xl text-red-600"></i>
-          <p class="mt-2">Angular</p>
-        </div>
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-tailwindcss-plain text-5xl"></i>
-          <p class="mt-2">TailwindCSS</p>
-        </div>
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-nodejs-plain text-5xl text-green-600"></i>
-          <p class="mt-2">Node.js</p>
-        </div>
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-python-plain text-5xl text-blue-400"></i>
-          <p class="mt-2">Python</p>
-        </div>
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-mysql-plain text-5xl text-blue-500"></i>
-          <p class="mt-2">SQL / MySQL</p>
-        </div>
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="fa-solid fa-code-branch text-5xl text-purple-500"></i>
-          <p class="mt-2">API / REST</p>
-        </div>
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-github-original text-5xl"></i>
-          <p class="mt-2">Git & GitHub</p>
+
+        <div class="skills__group">
+          <p class="skills__label">// design &amp; outros</p>
+          <ul class="tags">
+            <li class="tag">Git &amp; GitHub</li><li class="tag">Figma</li>
+            <li class="tag">Adobe Photoshop</li><li class="tag">Adobe Illustrator</li>
+            <li class="tag">POO</li><li class="tag">LGPD</li><li class="tag">IA Generativa</li>
+          </ul>
         </div>
       </div>
-    </div>
-     <div class="max-w-6xl mx-auto px-6 mt-12">
-      <h2 class="text-3xl font-semibold mb-6"> Outras Habilidades</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-photoshop-plain text-5xl text-blue-500"></i>
-          <p class="mt-2">Adobe Photoshop</p>
-        </div>
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-illustrator-plain text-5xl text-orange-500"></i>
-          <p class="mt-2">Adobe Illustrator</p>
-        </div>
-        <div class="flex flex-col items-center transform transition hover:scale-110 hover:-translate-y-1">
-          <i class="devicon-figma-plain text-5xl text-purple-500"></i>
-          <p class="mt-2">Figma</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="max-w-6xl mx-auto px-6 py-12">
-    <h2 class="text-3xl font-semibold mb-4">Formação</h2>
-    <ul class="list-disc pl-6 text-lg space-y-2">
-      <li><strong>Cursando (2027):</strong> Análise e Desenvolvimento de Sistemas – UNINTER</li>
-      <li><strong>2025:</strong> Curso de Habilitação em Programação – Mentes Brilhantes, LUPO</li>
-      <li><strong>2016:</strong> Técnico em Segurança no Trabalho – IFMA</li>
-      <li><strong>2012:</strong> Designer Gráfico – Soft Informática</li>
-    </ul>
-  </section>
+    <!-- ===================== SEÇÃO OBRIGATÓRIA 2: FORMAÇÃO ===================== -->
+    <section class="section section--alt" id="formacao">
+      <p class="eyebrow">// 02 — formação</p>
+      <h2 class="section__title">Formação</h2>
 
-  <section class="bg-white dark:bg-gray-800 py-12 transition">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl font-semibold mb-4">Certificações</h2>
-      <ul class="list-disc pl-6 text-lg space-y-2">
-        <li><strong>2025:</strong> Python 1 – CISCO</li>
-        <li><strong>2025:</strong> Introdução ao Transact-SQL – Microsoft Learn</li>
-        <li><strong>2025:</strong> Lei Geral De Proteção De Dados (LGPD) - Fundação Bradesco</li>
-        <li><strong>2025:</strong> Desenvolvimento Orientado a Objetos Utilizando a Linguagem Python - Fundação Bradesco</li>
-        <li><strong>2025:</strong> Introdução à Programação Orientada a Objetos (POO) - Fundação Bradesco</li>
-        <li><strong>2025:</strong> Introdução à Programação Orientada a Objetos (POO) com Python - DIO</li>
-        <li><strong>2025:</strong> Fundamentos de Machine Learning e IAs Generativas - DIO</li>
-        <li><strong>2025:</strong> Transformando Dados em Insights com SageMaker Canvas - DIO</li>
-        <li><strong>2025:</strong> Fundamentos de Dados para IA & Machine Learning - DIO</li>
+      <!-- Linha do tempo: ordem cronológica real, por isso o uso de marcadores faz sentido -->
+      <ol class="timeline">
+        <li class="timeline__item">
+          <span class="timeline__date">cursando · 2025–2027</span>
+          <h3>Análise e Desenvolvimento de Sistemas</h3>
+          <p>UNINTER — Centro Universitário Internacional</p>
+        </li>
+        <li class="timeline__item">
+          <span class="timeline__date">2025</span>
+          <h3>Curso de Habilitação em Programação</h3>
+          <p>Mentes Brilhantes, LUPO</p>
+        </li>
+        <li class="timeline__item">
+          <span class="timeline__date">2016</span>
+          <h3>Técnico em Segurança no Trabalho</h3>
+          <p>IFMA</p>
+        </li>
+        <li class="timeline__item">
+          <span class="timeline__date">2012</span>
+          <h3>Designer Gráfico</h3>
+          <p>Soft Informática</p>
+        </li>
+      </ol>
+
+      <ol class="timeline">
+        <p class="skills__label" style="margin-top:2.5rem;">// experiência profissional</p>
+        <li class="timeline__item">
+          <span class="timeline__date">01/2026 — presente</span>
+          <h3>Desenvolvedor Full Stack (Freelancer)</h3>
+          <p>100 Contas LTDA — Remoto</p>
+        </li>
+        <li class="timeline__item">
+          <span class="timeline__date">01/2026 — presente</span>
+          <h3>Estagiário em Desenvolvimento FullStack</h3>
+          <p>Apollo Solutions Dev — Remoto</p>
+        </li>
+        <li class="timeline__item">
+          <span class="timeline__date">12/2025 — 02/2026</span>
+          <h3>Estagiário em Desenvolvimento Front-End</h3>
+          <p>Cyrrus — Remoto</p>
+        </li>
+      </ol>
+
+      <ul class="cert-list">
+        <p class="skills__label" style="margin-top:2.5rem;">// certificações 2025</p>
+        <li>Python 1 — CISCO</li>
+        <li>Introdução ao Transact-SQL — Microsoft Learn</li>
+        <li>Lei Geral de Proteção de Dados (LGPD) — Fundação Bradesco</li>
+        <li>Desenvolvimento Orientado a Objetos Utilizando a Linguagem Python — Fundação Bradesco</li>
+        <li>Introdução à Programação Orientada a Objetos (POO) — Fundação Bradesco</li>
+        <li>Introdução à Programação Orientada a Objetos (POO) com Python — DIO</li>
+        <li>Fundamentos de Machine Learning e IAs Generativas — DIO</li>
+        <li>Transformando Dados em Insights com SageMaker Canvas — DIO</li>
+        <li>Fundamentos de Dados para IA &amp; Machine Learning — DIO</li>
       </ul>
-    </div>
-  </section>
+    </section>
 
-  <section class="max-w-6xl mx-auto px-6 py-12">
-    <h2 class="text-3xl font-semibold mb-4">Experiência</h2>
-    <ul class="list-disc pl-6 text-lg space-y-2">
-      
-      <li>
-        <strong>Dez 2025 - Marc 2026:</strong> Estágio Desenvolvedor Front-End – 
-        <a href="https://cyrrus.com.br/" target="_blank" class="hover:underline transition">
-          CYRRUS
-        </a>
-      </li>
+    <!-- ===================== SEÇÃO OBRIGATÓRIA 3: PORTFÓLIO ===================== -->
+    <section class="section" id="portfolio">
+      <p class="eyebrow">// 03 — portfólio</p>
+      <h2 class="section__title">Portfólio</h2>
+      <p class="section__lead">Projetos próprios, com link para o repositório e para a demonstração ao vivo.</p>
 
-      <li>
-        <strong> Marc 2026 - presente:</strong> Estágio Desenvolvedor FullStack – 
-        <a href="https://apollosolutionsdev.com/" target="_blank" class="hover:underline transition">
-          Apollo Solutions Dev
-        </a>
-      </li>
+      <!-- Grade de projetos em CSS Grid puro (sem Swiper/carrossel de biblioteca) -->
+      <div class="projects">
 
-    </ul>
-  </section>
+        <article class="card">
+          <img class="card__img" src="public/projetos/pokeapi2.png" alt="Preview do projeto PokeApi-FullStack" />
+          <h3>PokeApi-FullStack</h3>
+          <p>Aplicação full-stack que consome a PokéAPI, com autenticação de usuários, sistema de favoritos e busca de Pokémons.</p>
+          <ul class="tags tags--sm"><li class="tag">API</li><li class="tag">React</li><li class="tag">Python</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/adrianoads910-max/PokeApi-FullStack" target="_blank" rel="noopener">Repositório</a>
+            <a href="https://adrianoads910-max.github.io/PokeApi-FullStack/" target="_blank" rel="noopener">Ver página</a>
+          </div>
+        </article>
 
- <section class="bg-white dark:bg-gray-800 py-12 transition">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-semibold mb-8">Projetos</h2>
+        <article class="card">
+          <img class="card__img" src="public/projetos/smartmart.png" alt="Preview do projeto SmartMart" />
+          <h3>SmartMart</h3>
+          <p>Protótipo funcional para a SmartMart Solutions: dashboard de vendas, CRUD de catálogo e histórico de transações.</p>
+          <ul class="tags tags--sm"><li class="tag">API</li><li class="tag">React</li><li class="tag">Python</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/adrianoads910-max/SmartMart-Solutions" target="_blank" rel="noopener">Repositório</a>
+            <a href="https://smartmart-demo-mock.web.app/" target="_blank" rel="noopener">Ver página</a>
+          </div>
+        </article>
 
-        <div class="swiper mySwiper pb-12">
-            <div class="swiper-wrapper">
+        <article class="card">
+          <img class="card__img" src="public/projetos/kanbanpage.png" alt="Preview do projeto Kanban List" />
+          <h3>Kanban List — Ionic + Angular + Firebase</h3>
+          <p>Stack Ionic 7 + Angular 17 (Standalone), com integração completa ao Firebase Firestore para persistência em nuvem.</p>
+          <ul class="tags tags--sm"><li class="tag">Firebase</li><li class="tag">Angular</li><li class="tag">Ionic</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/adrianoads910-max/Kanban-List-Ionic-Angular" target="_blank" rel="noopener">Repositório</a>
+            <a href="https://kanban-board-74f5a.web.app/" target="_blank" rel="noopener">Ver página</a>
+          </div>
+        </article>
 
-                <div class="swiper-slide h-auto">
-                    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
-                        <a href="https://adrianoads910-max.github.io/PokeApi-FullStack/" target="_blank">
-                            <img src="public/projetos/pokeapi2.png" alt="PokeApi Preview" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-                        </a>
-                        <h3 class="text-xl font-semibold mb-2">PokeApi-FullStack</h3>
-                        <p class="text-sm mb-4 flex-grow">Aplicação full-stack que consome a PokéAPI, com autenticação de usuários, sistema de favoritos e busca de Pokémons.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">API</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">React</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Tailwind CSS</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Python</span>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://github.com/adrianoads910-max/PokeApi-FullStack" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Ver Repositório
-                            </a>
-                            <a href="https://adrianoads910-max.github.io/PokeApi-FullStack/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
-                                <i class="fa-solid fa-globe"></i> Ver Página
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <article class="card">
+          <img class="card__img" src="public/projetos/dashboard.jpeg" alt="Preview do projeto Restaurant Analytics" />
+          <h3>Restaurant-Analytics-API</h3>
+          <p>Dashboard moderno para análise de vendas e performance de restaurantes.</p>
+          <ul class="tags tags--sm"><li class="tag">API</li><li class="tag">React</li><li class="tag">SQLite</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/adrianoads910-max/Restaurant-Analytics-API" target="_blank" rel="noopener">Repositório</a>
+          </div>
+        </article>
 
-                <div class="swiper-slide h-auto">
-                    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
-                        <a href="https://github.com/adrianoads910-max/SmartMart-Solutions" target="_blank">
-                            <img src="public/projetos/smartmart.png" alt="SmartMart Preview" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-                        </a>
-                        <h3 class="text-xl font-semibold mb-2">SmartMart</h3>
-                        <p class="text-sm mb-4 flex-grow">Este projeto é um protótipo funcional desenvolvido para a SmartMart Solutions, focado na visualização de dados de vendas (Dashboard), no gerenciamento de catálogo de produtos (CRUD) e no controle de transações (Histórico de Vendas).</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">API</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">React</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Tailwind CSS</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Python</span>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://github.com/adrianoads910-max/SmartMart-Solutions" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Ver Repositório
-                            </a>
-                            <a href="https://smartmart-demo-mock.web.app/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
-                                <i class="fa-solid fa-globe"></i> Ver Página
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <article class="card">
+          <img class="card__img" src="public/projetos/codestudio.png" alt="Preview do projeto CodeEstudio" />
+          <h3>CodeEstudio</h3>
+          <p>Plataforma full-stack voltada para ensino e aprendizagem de programação básica.</p>
+          <ul class="tags tags--sm"><li class="tag">API</li><li class="tag">React</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/adrianoads910-max/code-studio" target="_blank" rel="noopener">Repositório</a>
+          </div>
+        </article>
 
-                <div class="swiper-slide h-auto">
-                    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
-                        <a href="https://github.com/adrianoads910-max/Kanban-List-Ionic-Angular" target="_blank">
-                            <img src="public/projetos/kanbanpage.png" alt="SmartMart Preview" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-                        </a>
-                        <h3 class="text-xl font-semibold mb-2">Kanban List – Ionic + Angular + Firebase</h3>
-                        <p class="text-sm mb-4 flex-grow">📋 Kanban List – Ionic + Angular + Firebase O projeto utiliza a stack moderna Ionic 7 + Angular 17 (Standalone) e destaca-se pela integração completa com Firebase Firestore para persistência de dados na nuvem.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Firebase</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Angular</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Tailwind CSS</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-sky-100 text-sky-700 dark:bg-sky-900 dark:text-sky-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Ionic</span>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://github.com/adrianoads910-max/Kanban-List-Ionic-Angular" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Ver Repositório
-                            </a>
-                            <a href="kanban-board-74f5a.web.app/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
-                                <i class="fa-solid fa-globe"></i> Ver Página
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <article class="card">
+          <img class="card__img" src="public/projetos/labnews.png" alt="Preview do projeto LabNews" />
+          <h3>LabNews</h3>
+          <p>Front-end de uma loja de produtos químicos, com layout responsivo e componentes reutilizáveis.</p>
+          <ul class="tags tags--sm"><li class="tag">React</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/adrianoads910-max/labnews" target="_blank" rel="noopener">Repositório</a>
+            <a href="https://labnews-prod.web.app/" target="_blank" rel="noopener">Ver página</a>
+          </div>
+        </article>
 
-                <div class="swiper-slide h-auto">
-                    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
-                        <a href="https://github.com/adrianoads910-max/Restaurant-Analytics-API" target="_blank">
-                            <img src="public/projetos/dashboard.jpeg" alt="Restaurant Analytics" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-                        </a>
-                        <h3 class="text-xl font-semibold mb-2">Restaurant-Analytics-API</h3>
-                        <p class="text-sm mb-4 flex-grow">Dashboard moderno para análise de vendas e performance de restaurantes.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">API</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">React</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Tailwind CSS</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Python</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">SQLite</span>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://github.com/adrianoads910-max/Restaurant-Analytics-API" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Ver Repositório
-                            </a>
-                            <a href="https://github.com/adrianoads910-max/Restaurant-Analytics-APIo" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
-                                <i class="fa-solid fa-globe"></i> Ver Página
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <article class="card">
+          <img class="card__img" src="public/projetos/login.png" alt="Preview do projeto Login-Register" />
+          <h3>Login-Register</h3>
+          <p>Login e cadastro de usuários em React, com interface moderna e validações básicas.</p>
+          <ul class="tags tags--sm"><li class="tag">React</li><li class="tag">Firebase</li><li class="tag">Node.js</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/adrianoads910-max/Login-Register" target="_blank" rel="noopener">Repositório</a>
+            <a href="https://adrianoads910-max.github.io/Login-Register/" target="_blank" rel="noopener">Ver página</a>
+          </div>
+        </article>
 
-                <div class="swiper-slide h-auto">
-                    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
-                        <a href="https://github.com/adrianoads910-max/code-studio" target="_blank">
-                            <img src="public/projetos/codestudio.png" alt="CodeStudio" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-                        </a>
-                        <h3 class="text-xl font-semibold mb-2">CodeEstudio</h3>
-                        <p class="text-sm mb-4 flex-grow">Plataforma full-stack voltada para ensino e aprendizagem de programação básica.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">API</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">React</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Tailwind CSS</span>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://github.com/adrianoads910-max/code-studio" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Ver Repositório
-                            </a>
-                            <a href="https://github.com/adrianoads910-max/code-studio" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
-                                <i class="fa-solid fa-globe"></i> Ver Página
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <article class="card">
+          <img class="card__img" src="public/projetos/todolist.png" alt="Preview do projeto ToDoList" />
+          <h3>ToDoList</h3>
+          <p>Gerenciador de tarefas estilo Kanban, feito com HTML + JavaScript puro + CSS.</p>
+          <ul class="tags tags--sm"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">JavaScript</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/adrianoads910-max/ToDoList" target="_blank" rel="noopener">Repositório</a>
+            <a href="https://adrianoads910-max.github.io/ToDoList/" target="_blank" rel="noopener">Ver página</a>
+          </div>
+        </article>
 
-                <div class="swiper-slide h-auto">
-                    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
-                        <a href="https://labnews-prod.web.app/" target="_blank">
-                            <img src="public/projetos/labnews.png" alt="LabNews" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-                        </a>
-                        <h3 class="text-xl font-semibold mb-2">LabNews</h3>
-                        <p class="text-sm mb-4 flex-grow">Projeto front-end de uma loja de produtos químicos, com layout responsivo e componentes reutilizáveis.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">API</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">React</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Tailwind CSS</span>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://github.com/adrianoads910-max/labnews" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Ver Repositório
-                            </a>
-                            <a href="https://labnews-prod.web.app/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
-                                <i class="fa-solid fa-globe"></i> Ver Página
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <article class="card">
+          <img class="card__img" src="public/projetos/goldfit.png" alt="Preview do projeto Goldfit" />
+          <h3>Goldfit</h3>
+          <p>Plataforma para gerenciamento e visualização de serviços, treinos e ofertas no nicho fitness.</p>
+          <ul class="tags tags--sm"><li class="tag">React</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/adrianoads910-max/goldfit" target="_blank" rel="noopener">Repositório</a>
+            <a href="https://adrianoads910-max.github.io/goldfit/" target="_blank" rel="noopener">Ver página</a>
+          </div>
+        </article>
 
-                <div class="swiper-slide h-auto">
-                    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
-                        <a href="https://adrianoads910-max.github.io/Login-Register/" target="_blank">
-                            <img src="public/projetos/login.png" alt="Login-Register" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-                        </a>
-                        <h3 class="text-xl font-semibold mb-2">Login-Register</h3>
-                        <p class="text-sm mb-4 flex-grow">Um projeto simples e funcional de login e cadastro de usuários feito em React, com interface moderna e validações básicas.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">API</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Firebase</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">React</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Tailwind CSS</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">NodeJs</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">SQLite</span>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://github.com/adrianoads910-max/Login-Register" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Ver Repositório
-                            </a>
-                            <a href="https://adrianoads910-max.github.io/Login-Register/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
-                                <i class="fa-solid fa-globe"></i> Ver Página
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <article class="card">
+          <img class="card__img" src="public/projetos/cafeteria.png" alt="Preview do projeto Cafeteria por do sol" />
+          <h3>Cafeteria por do sol</h3>
+          <p>Site simples de demonstração de layout e interface para uma cafeteria.</p>
+          <ul class="tags tags--sm"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">JavaScript</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/adrianoads910-max/cafeteria" target="_blank" rel="noopener">Repositório</a>
+            <a href="https://adrianoads910-max.github.io/projeto-em-dupla/" target="_blank" rel="noopener">Ver página</a>
+          </div>
+        </article>
 
-                <div class="swiper-slide h-auto">
-                    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
-                        <a href="https://adrianoads910-max.github.io/ToDoList/" target="_blank">
-                            <img src="public/projetos/todolist.png" alt="ToDoList" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-                        </a>
-                        <h3 class="text-xl font-semibold mb-2">ToDoList</h3>
-                        <p class="text-sm mb-4 flex-grow">Um gerenciador de tarefas estilo Kanban, simples e funcional, feito com HTML + JavaScript puro + TailwindCSS via CDN.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">HTML</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Tailwind CSS</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">JavaScript</span>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://github.com/adrianoads910-max/ToDoList" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Ver Repositório
-                            </a>
-                            <a href="https://adrianoads910-max.github.io/ToDoList/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
-                                <i class="fa-solid fa-globe"></i> Ver Página
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <article class="card">
+          <img class="card__img" src="public/projetos/unknow.jpg" alt="Preview do projeto List-Product-API" />
+          <h3>List-Product-API</h3>
+          <p>API REST básica para cadastro, consulta, atualização e remoção de produtos.</p>
+          <ul class="tags tags--sm"><li class="tag">API</li><li class="tag">Node.js</li><li class="tag">SQLite</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/adrianoads910-max/list-product-api" target="_blank" rel="noopener">Repositório</a>
+          </div>
+        </article>
 
-                <div class="swiper-slide h-auto">
-                    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
-                        <a href="https://adrianoads910-max.github.io/goldfit/" target="_blank">
-                            <img src="public/projetos/goldfit.png" alt="Goldfit" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-                        </a>
-                        <h3 class="text-xl font-semibold mb-2">Goldfit</h3>
-                        <p class="text-sm mb-4 flex-grow">Aplicação Web/Plataforma para gerenciamento e visualização de serviços, treinos e ofertas no nicho fitness e wellness.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">React</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Tailwind CSS</span>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://github.com/adrianoads910-max/goldfit" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Ver Repositório
-                            </a>
-                            <a href="https://adrianoads910-max.github.io/goldfit/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
-                                <i class="fa-solid fa-globe"></i> Ver Página
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <article class="card">
+          <img class="card__img" src="public/projetos/notas.png" alt="Preview do Sistema de Gestão" />
+          <h3>Sistema de Gestão</h3>
+          <p>Sistema de faturamento para gerenciamento financeiro, com autenticação e controle de faturas.</p>
+          <ul class="tags tags--sm"><li class="tag">API</li><li class="tag">Angular</li><li class="tag">C#</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/adrianoads910-max/Korp_Teste_Adriano" target="_blank" rel="noopener">Repositório</a>
+            <a href="https://adrianoads910-max.github.io/Korp_Teste_Adriano/login" target="_blank" rel="noopener">Ver página</a>
+          </div>
+        </article>
 
-                <div class="swiper-slide h-auto">
-                    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
-                        <a href="https://adrianoads910-max.github.io/projeto-em-dupla/" target="_blank">
-                            <img src="public/projetos/cafeteria.png" alt="Cafeteria" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-                        </a>
-                        <h3 class="text-xl font-semibold mb-2">Cafeteria por do sol</h3>
-                        <p class="text-sm mb-4 flex-grow">Projeto “teste de cafeteria” — um site simples de demonstração de layout e interface para uma cafeteria.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">HTML</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">CSS</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">JavaScript</span>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://github.com/adrianoads910-max/cafeteria" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Ver Repositório
-                            </a>
-                            <a href="https://adrianoads910-max.github.io/projeto-em-dupla/" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
-                                <i class="fa-solid fa-globe"></i> Ver Página
-                            </a>
-                        </div>
-                    </div>
-                </div>
+      </div>
+    </section>
 
-                <div class="swiper-slide h-auto">
-                    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
-                        <a href="https://github.com/adrianoads910-max/list-product-api" target="_blank">
-                            <img src="public/projetos/unknow.jpg" alt="List Product API" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-                        </a>
-                        <h3 class="text-xl font-semibold mb-2">List-Product-API</h3>
-                        <p class="text-sm mb-4 flex-grow">API REST básica que permite o cadastro, consulta, atualização e remoção de produtos.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">API</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">NodeJs</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">SQLite</span>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://github.com/adrianoads910-max/list-product-api" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Ver Repositório
-                            </a>
-                            <a href="https://github.com/adrianoads910-max/list-product-api" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
-                                <i class="fa-solid fa-globe"></i> Ver Página
-                            </a>
-                        </div>
-                    </div>
-                </div>
+    <!-- ===================== SEÇÃO OBRIGATÓRIA 4: CONTATO ===================== -->
+    <section class="section section--alt" id="contato">
+      <p class="eyebrow">// 04 — contato</p>
+      <h2 class="section__title">Contato</h2>
+      <p class="section__lead">Preencha o formulário abaixo. Todos os campos são obrigatórios e o e-mail é validado antes do envio.</p>
 
-                <div class="swiper-slide h-auto">
-                    <div class="p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-md h-full flex flex-col">
-                        <a href="https://github.com/adrianoads910-max/Korp_Teste_Adriano" target="_blank">
-                            <img src="public/projetos/notas.png" alt="Sistema de Gestão" class="w-full h-40 object-cover rounded-lg mb-4 hover:opacity-90 transition" />
-                        </a>
-                        <h3 class="text-xl font-semibold mb-2">Sistema de Gestão</h3>
-                        <p class="text-sm mb-4 flex-grow">Sistema de faturamento desenvolvido para gerenciamento financeiro, com autenticação de usuários e controle de faturas.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">API</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Angular</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">Tailwind CSS</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">C#</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-300 transition-transform duration-300 hover:scale-110 hover:brightness-110 cursor-pointer">SQLite</span>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://github.com/adrianoads910-max/Korp_Teste_Adriano" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Ver Repositório
-                            </a>
-                            <a href="https://adrianoads910-max.github.io/Korp_Teste_Adriano/login" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center gap-2 mt-2">
-                                <i class="fa-solid fa-globe"></i> Ver Página
-                            </a>
-                        </div>
-                    </div>
-                </div>
+      <div class="contact">
 
-            </div>
-            <div class="swiper-pagination"></div>
+        <!-- Formulário com validação e simulação de envio feitas em script.js -->
+        <form id="contactForm" class="contact__form" novalidate>
+
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" autocomplete="name" />
+            <span class="field__error" id="erroNome"></span>
+          </div>
+
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" placeholder="usuario@dominio.com" autocomplete="email" />
+            <span class="field__error" id="erroEmail"></span>
+          </div>
+
+          <div class="field">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem..."></textarea>
+            <span class="field__error" id="erroMensagem"></span>
+          </div>
+
+          <button type="submit" class="btn" id="btnEnviar">Enviar mensagem</button>
+
+          <!-- Caixa de confirmação exibida via JS após o "envio" simulado -->
+          <p class="form-success" id="formSuccess" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="contact__info">
+          <p class="skills__label">// outros canais</p>
+          <p><strong>E-mail:</strong> adrianoads910@gmail.com</p>
+          <p><strong>Telefone:</strong> (98) 98832-5686</p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/adriano-souza-fonseca-868976300" target="_blank" rel="noopener">/in/adriano-souza-fonseca</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/adrianoads910-max" target="_blank" rel="noopener">/adrianoads910-max</a></p>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
+  </main>
 
-<footer class="bg-white dark:bg-gray-800 shadow-md transition dark:text-white text-center py-6">
-    <p>
-        &copy; <span id="year"></span> - Desenvolvido por Adriano Souza Fonseca
-    </p>
-</footer>
-
-<script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="footer">
+    <p>// © <span id="year"></span> adriano@dev:~$ <span class="footer__exit">exit</span></p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
